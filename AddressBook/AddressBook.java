@@ -30,5 +30,15 @@ public class AddressBook {
         
         Person person = new Person(firstName, lastName, city, state, phoneNumber, zip );
         personInfo.add(person);		
-	}		
+	}	
+	
+	public void display() {
+		System.out.println("Person Information");
+		for(int i=0; i<personInfo.size(); i++) {
+			System.out.println(personInfo.get(i));
+		}
+	}
+	
+	
+
 }
