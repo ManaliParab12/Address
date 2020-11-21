@@ -1,4 +1,4 @@
-package AddressBook;
+package addressBook;
 
 public class AddressBookMain {
 	
