@@ -7,7 +7,7 @@ public class Person {
 	private String city;
 	private String state;
 	private long phoneNumber;
-	private int zip;		
+	private int zip;	
 	
 	Person(String firstName, String lastName, String city, String state, long phoneNumber, int zip) {
 		this.firstName = firstName;
