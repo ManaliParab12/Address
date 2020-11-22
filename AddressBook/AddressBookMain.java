@@ -3,10 +3,10 @@ package addressBook;
 import java.util.Scanner;
 
 public class AddressBookMain {
-	
-	static Scanner sc = new Scanner(System.in);
-	
+		
 	public static void main(String [] args) {
+		
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to Address Book Program");	
 		
 		AddressBook addressbook = new AddressBook();
@@ -16,7 +16,7 @@ public class AddressBookMain {
 			           + "\n Enter 2 to Edit Person"
 	    		       + "\n Enter 3 to display Person Information");
 	    
-	    int value = sc.nextInt();
+	    int value = scanner.nextInt();
 	    switch (value) {
 		case 1 :
 			addressbook.addPerson();

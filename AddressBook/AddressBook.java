@@ -28,7 +28,7 @@ public class AddressBook {
         System.out.println("Enter Zip");
         int zip = sc.nextInt();
         
-        Person person = new Person(firstName, lastName, city, state, phoneNumber, zip );
+        Person person = new Person();
         personInfo.add(person);		
 	}	
 	
@@ -81,6 +81,25 @@ public class AddressBook {
 			    	System.out.println("Incorrect Choice");				
 				}			      
 			}
-        }			
-	}		
+        }        
+	}
+	
+	public void deletePerson() {
+		System.out.println("Enter Last Name to delete its Entry");
+		String lastName = sc.next();
+		for ( int i=0; i< personInfo.size(); i++) {
+			Person person = (Person)personInfo.get(i);
+			if(lastName.equals(person.getLastName())) {
+				System.out.println(personInfo.get(i));
+				personInfo.remove(i);
+				System.out.println("Record Deleted");
+			}
+		}		
+	}
+	
+	
+	@Override  
+	protected void finalize() {   
+		sc.close(); 
+    }  
 }
