@@ -1,5 +1,6 @@
 package addressBook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -7,10 +8,10 @@ public class AddressBookMain {
 	public static void main(String [] args) {
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Welcome to Address Book Program");	
 		
-		AddressBook addressbook = new AddressBook();
-		
+		System.out.println("Welcome to Address Book Program");		
+		AddressBook addressbook = new AddressBook();		
+
 		int input=1;
 		while (input == 1) {					
 			System.out.println("Select any option From Menu ");

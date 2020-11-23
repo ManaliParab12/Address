@@ -8,7 +8,7 @@ public class Person {
 	private String state;
 	private long phoneNumber;
 	private int zip;	
-	
+		
 	public String getFirstName() {
 		return firstName;
 	}

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AddressBook {
 	
 	Scanner sc = new Scanner(System.in);
-	public static ArrayList<Person> personInfo = new ArrayList<>();
+	ArrayList<Person> personInfo = new ArrayList<Person>();
 	
 	public void addPerson() {	
 		
@@ -27,10 +27,10 @@ public class AddressBook {
         
         System.out.println("Enter Zip");
         int zip = sc.nextInt();
-        
-        Person person = new Person();
-        personInfo.add(person);		
-	}	
+  
+       Person person = new Person();
+       personInfo.add(person);
+	}   
 	
 	public void display() {
 		System.out.println("Person Information");
@@ -96,7 +96,6 @@ public class AddressBook {
 			}
 		}		
 	}
-
 	
 	@Override  
 	protected void finalize() {   
