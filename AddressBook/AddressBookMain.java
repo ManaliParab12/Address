@@ -36,7 +36,8 @@ public class AddressBookMain {
                                 + "\n3. Edit Person"
                                 + "\n4. Delete Person"
                                 + "\n5. Display"
-                                + "\n6. Quit");
+                                + "\n6. Search by city and state"
+                                + "\n7. Quit");
                     	int value = scanner.nextInt();
 			
 						switch (value) {
@@ -56,10 +57,13 @@ public class AddressBookMain {
                              addressbook.display();
                              break;
 						case 6 :
+							addressbook.searchByCityOrState();
+                            break;
+                        case 7 :
 							input = 0;
 							break;
 						default :
-							System.out.println("Incorrect Choice" + "\nEnter a number between 1 and 4");			
+							System.out.println("Incorrect Choice" + "\nEnter a number between 1 and 6");			
 					    }
 					 }
                     break;

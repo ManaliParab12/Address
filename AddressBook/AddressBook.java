@@ -32,7 +32,7 @@ public class AddressBook {
         }
     }
 	
-	 public void displayAddressBook() {
+	public void displayAddressBook() {
 		 
 	        System.out.println("Display List of all AddressBook");
 	        for (int i = 0; i < addressbooklist.size(); i++) {
@@ -40,7 +40,7 @@ public class AddressBook {
 	        }
 	    }
 	 
-	 public void searchPerson() {
+	public void searchPerson() {
 	       
 	        System.out.println("Enter name to check entry present or not");
 	        String firstName = sc.next();
@@ -142,6 +142,23 @@ public class AddressBook {
 			}
 		}		
 	}
+	
+	public void searchByCityOrState() {
+        System.out.println("Enter City to Search Person");
+        String City = sc.next();
+        System.out.println("Enter State to Search Person");
+        String State = sc.next();
+        for (Person P : personInfo) {
+            if (City.equals(P.getCity()) || State.equals(P.getState())) {
+                 System.out.println(City);
+                 System.out.println(State);
+            }
+        }
+        personInfo.stream()
+                        .filter(personInfo -> personInfo.getCity().equals(City))
+                        .filter(personInfo -> personInfo.getState().equals(State))
+                        .forEach(personInfo1 -> System.out.println(personInfo1));
+        }
 	
 	@Override  
 	protected void finalize() {   
