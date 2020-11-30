@@ -11,6 +11,17 @@ public class AddressBookMain {
 		
 		System.out.println("Welcome to Address Book Program");		
 		AddressBook addressbook = new AddressBook();		
+		
+		int answer=1;
+	    while (answer == 1) {
+	        System.out.println("Select any option for Address Book Operation");
+	        System.out.println("1. Create New AddressBook");
+	        int choice =sc.nextInt();
+
+            switch(choice) {
+                case 1 :
+                    addressbook.newAddressBook();
+                    break;
 
 		int input=1;
 		while (input == 1) {					

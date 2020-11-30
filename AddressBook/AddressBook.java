@@ -6,7 +6,19 @@ import java.util.Scanner;
 public class AddressBook {
 	
 	Scanner sc = new Scanner(System.in);
+	
 	ArrayList<Person> personInfo = new ArrayList<Person>();
+	ArrayList<AddressBookList> addressbooklist = new ArrayList<AddressBookList>();
+	
+	public void newAddressBook() {
+		System.out.println("Enter AddressBook Name");
+	    String bookName = sc.next();
+	    
+	    AddressBookList address = new AddressBookList(bookName);
+	    
+	    addressbooklist.add(address);
+	    System.out.println(addressbooklist.toString());
+	}
 	
 	public void addPerson() {	
 		
