@@ -189,6 +189,41 @@ public class AddressBook {
         personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName()));
             }
 	
+	public void sortContactListByCity() {
+        for (Person P : personInfo) {
+            System.out.println(P.getCity());
+        }
+        System.out.println("*********");
+
+        personInfo.stream();
+        personInfo.sort(Comparator.comparing(Person::getCity));
+        personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName() + " " + P.getCity() + " " + P.getState() + " " + P.getPhoneNumber() + " " + P.getZip() ));
+    }
+	
+    public void sortContactListByState() {
+        for (Person P : personInfo) {
+            System.out.println(P.getState());
+        }
+        System.out.println("*********");
+
+        personInfo.stream();
+        personInfo.sort(Comparator.comparing(Person::getState));
+        personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName() + " " + P.getCity() + " " + P.getState() + " " + P.getPhoneNumber() + " " + P.getZip() ));
+
+    }
+    
+    public void sortContactListByZip() {
+        for (Person P : personInfo) {
+            System.out.println(P.getZip());
+        }
+        System.out.println("*********");
+
+        personInfo.stream();
+        personInfo.sort(Comparator.comparing(Person::getZip));
+        personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName() + " " + P.getCity() + " " + P.getState() + " " + P.getPhoneNumber() + " " + P.getZip() ));
+    }
+
+	
 	@Override  
 	protected void finalize() {   
 		sc.close(); 
