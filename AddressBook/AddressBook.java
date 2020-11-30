@@ -20,6 +20,24 @@ public class AddressBook {
 	    System.out.println(addressbooklist.toString());
 	}
 	
+	public void openAddressBook() {  
+		displayAddressBook();
+        System.out.println("Enter name to Open  AddressBook");
+        String bookName = sc.next();
+        for (AddressBookList A : addressbooklist) {
+            if (bookName.equals(A.getbookName())) {
+                System.out.println("Address Book " + A.getbookName() + " is opened ");
+            }
+        }
+    }
+	
+	 public void displayAddressBook() {
+	        System.out.println("Display List of all AddressBook");
+	        for (int i = 0; i < addressbooklist.size(); i++) {
+	            System.out.println(addressbooklist.get(i));
+	        }
+	    }
+	 
 	public void addPerson() {	
 		
 		System.out.println("Enter First Name");
@@ -40,15 +58,8 @@ public class AddressBook {
         System.out.println("Enter Zip");
         int zip = sc.nextInt();
   
-       //Person person = new Person();
-       for ( int i=0; i< personInfo.size(); i++) {
-       Person person = (Person)personInfo.get(i);
-       
-       if(firstName.equals(person.getFirstName())) {
-    	   System.out.println("Sorry this contact already exists ");
-       }else {
-    	      personInfo.add(person);}
-       }
+       Person person = new Person(firstName, lastName, city, state, phoneNumber, zip );
+       personInfo.add(person);
  
 	}   
 	

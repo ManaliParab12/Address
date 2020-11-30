@@ -8,6 +8,15 @@ public class Person {
 	private String state;
 	private long phoneNumber;
 	private int zip;	
+	
+	public Person(String firstName, String lastName, String city, String state, long phoneNumber, int zip) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
+		this.state = state;
+		this.phoneNumber = phoneNumber;
+		this.zip = zip;
+	}
 		
 	public String getFirstName() {
 		return firstName;
