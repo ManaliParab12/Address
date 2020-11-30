@@ -1,6 +1,7 @@
 package addressBook;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -175,6 +176,18 @@ public class AddressBook {
       System.out.println(personInfo.stream().collect(Collectors.groupingBy((Person P) -> P.getState(),
               Collectors.counting())));
   }
+	
+	public void sortContactListByFirstName() {
+		
+        for (Person P : personInfo) {
+            System.out.println(P.getFirstName());
+        }
+        System.out.println("*********");
+
+        personInfo.stream();
+        personInfo.sort(Comparator.comparing(Person::getFirstName));
+        personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName()));
+            }
 	
 	@Override  
 	protected void finalize() {   

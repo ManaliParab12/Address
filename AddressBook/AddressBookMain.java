@@ -39,7 +39,8 @@ public class AddressBookMain {
                                 + "\n6. Search by city and state"
                                 + "\n7. Count by City"
                                 + "\n8. Count by State"
-                                + "\n9. Quit");
+                                + "\n9. Sort by first name"
+                                + "\n10. Quit");
                     	int value = scanner.nextInt();
 			
 						switch (value) {
@@ -68,10 +69,13 @@ public class AddressBookMain {
                             addressbook.countByState();
                             break;
                         case 9 :
+                        	 addressbook.sortContactListByFirstName();
+                             break;
+                         case 10 :
 							input = 0;
 							break;
 						default :
-							System.out.println("Incorrect Choice" + "\nEnter a number between 1 and 8");			
+							System.out.println("Incorrect Choice" + "\nEnter a number between 1 and 9");			
 					    }
 					 }
                     break;
