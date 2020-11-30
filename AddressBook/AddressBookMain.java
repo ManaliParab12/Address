@@ -31,27 +31,31 @@ public class AddressBookMain {
                     int input=1;
                     while (input == 1) {					
                     	System.out.println("Select any option From Menu ");
-                    	System.out.println("1. Add Person"
-							+ "\n2. Edit Person"
-							+ "\n3. Delete Person"					
-							+ "\n4. Display"
-							+ "\n5. Quit");
+                    	System.out.println("1. Check Person "
+                                + "\n2. Add Person"
+                                + "\n3. Edit Person"
+                                + "\n4. Delete Person"
+                                + "\n5. Display"
+                                + "\n6. Quit");
                     	int value = scanner.nextInt();
 			
 						switch (value) {
-						case 1 :
-							addressbook.addPerson();
+						case 1 :					
+							addressbook.searchPerson();
 							break;
-						case 2 :
-							addressbook.editPerson();
-							break;
-						case 3 :
-							addressbook.deletePerson();
-							break;			
-						case 4 :
-							addressbook.display();
-							break;
-						case 5 :
+						 case 2 :
+                             addressbook.addPerson();
+                             break;
+                         case 3 :
+                             addressbook.editPerson();
+                             break;
+                         case 4 :
+                             addressbook.deletePerson();
+                             break;
+                         case 5 :
+                             addressbook.display();
+                             break;
+						case 6 :
 							input = 0;
 							break;
 						default :

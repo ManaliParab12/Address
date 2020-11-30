@@ -11,9 +11,9 @@ public class AddressBook {
 	ArrayList<AddressBookList> addressbooklist = new ArrayList<AddressBookList>();
 	
 	public void newAddressBook() {
+		
 		System.out.println("Enter AddressBook Name");
-	    String bookName = sc.next();
-	    
+	    String bookName = sc.next();	    
 	    AddressBookList address = new AddressBookList(bookName);
 	    
 	    addressbooklist.add(address);
@@ -21,6 +21,7 @@ public class AddressBook {
 	}
 	
 	public void openAddressBook() {  
+		
 		displayAddressBook();
         System.out.println("Enter name to Open  AddressBook");
         String bookName = sc.next();
@@ -32,11 +33,25 @@ public class AddressBook {
     }
 	
 	 public void displayAddressBook() {
+		 
 	        System.out.println("Display List of all AddressBook");
 	        for (int i = 0; i < addressbooklist.size(); i++) {
 	            System.out.println(addressbooklist.get(i));
 	        }
 	    }
+	 
+	 public void searchPerson() {
+	       
+	        System.out.println("Enter name to check entry present or not");
+	        String firstName = sc.next();
+	        for(Person P : personInfo) {
+	        if (firstName.equals(P.getFirstName())) {
+	            System.out.println("Person already exists in the book");
+	        } else {
+	            System.out.println("Person not exists add data");
+	        }
+	    }
+	 }
 	 
 	public void addPerson() {	
 		
