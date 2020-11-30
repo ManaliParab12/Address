@@ -28,8 +28,16 @@ public class AddressBook {
         System.out.println("Enter Zip");
         int zip = sc.nextInt();
   
-       Person person = new Person();
-       personInfo.add(person);
+       //Person person = new Person();
+       for ( int i=0; i< personInfo.size(); i++) {
+       Person person = (Person)personInfo.get(i);
+       
+       if(firstName.equals(person.getFirstName())) {
+    	   System.out.println("Sorry this contact already exists ");
+       }else {
+    	      personInfo.add(person);}
+       }
+ 
 	}   
 	
 	public void display() {
