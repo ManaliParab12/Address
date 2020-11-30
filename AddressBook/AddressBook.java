@@ -2,6 +2,7 @@ package addressBook;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 	
@@ -144,6 +145,7 @@ public class AddressBook {
 	}
 	
 	public void searchByCityOrState() {
+		
         System.out.println("Enter City to Search Person");
         String City = sc.next();
         System.out.println("Enter State to Search Person");
@@ -159,6 +161,20 @@ public class AddressBook {
                         .filter(personInfo -> personInfo.getState().equals(State))
                         .forEach(personInfo1 -> System.out.println(personInfo1));
         }
+	
+	public void countByCity(){
+		
+         System.out.println(personInfo.stream().collect(Collectors.groupingBy((Person P) -> P.getCity())));
+         System.out.println(personInfo.stream().collect(Collectors.groupingBy((Person P) -> P.getCity(),
+                      Collectors.counting())));
+             }
+
+	public void countByState() {
+		
+      System.out.println(personInfo.stream().collect(Collectors.groupingBy((Person P) -> P.getState())));
+      System.out.println(personInfo.stream().collect(Collectors.groupingBy((Person P) -> P.getState(),
+              Collectors.counting())));
+  }
 	
 	@Override  
 	protected void finalize() {   
