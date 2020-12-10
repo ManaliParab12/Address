@@ -1,14 +1,25 @@
 package addressBook;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBook {
 	
 	Scanner sc = new Scanner(System.in);
-	
 	ArrayList<Person> personInfo = new ArrayList<Person>();
 	ArrayList<AddressBookList> addressbooklist = new ArrayList<AddressBookList>();
 	
@@ -76,16 +87,58 @@ public class AddressBook {
 		System.out.println("Enter Zip");
 		int zip = sc.nextInt();
 		
+		String COMMA_DELIMITER = ",";
+		String NEW_LINE_SEPARATOR = "\n";
+		String FILE_HEADER = "First Name,Last Name,City,State,Phone Number,Zip";	
+		FileWriter fileWriter = null;	 
+		try {
+		
 		Person person = new Person(firstName, lastName, city, state, phoneNumber, zip );
 		personInfo.add(person);
+		
+		fileWriter = new FileWriter("D:\\AddressBook.csv");
+		fileWriter.append(FILE_HEADER);
+		for(Person p : personInfo) {
+			fileWriter.append(NEW_LINE_SEPARATOR);
+		    	fileWriter.append(person.getFirstName());
+		    	fileWriter.append(COMMA_DELIMITER);
+		    	fileWriter.append(person.getLastName());
+		    	fileWriter.append(COMMA_DELIMITER);
+		    	fileWriter.append(person.getCity());
+		    	fileWriter.append(COMMA_DELIMITER);
+		    	fileWriter.append(person.getState());
+		    	fileWriter.append(COMMA_DELIMITER);
+		    	fileWriter.append(String.valueOf(person.getPhoneNumber()));
+		    	fileWriter.append(COMMA_DELIMITER);	
+		    	fileWriter.append(String.valueOf(person.getZip()));	           
 		}
+	     System.out.println("Write CSV successfully!");
+	     } catch (Exception e) {
+	         System.out.println("Writing CSV error!");
+	         e.printStackTrace();		   
+	           }finally {
+	        	    try {
+	        	        fileWriter.flush();
+	        	        fileWriter.close();
+	        	      } catch (IOException e) {
+	        	        System.out.println("Flushing/closing error!");
+	        	        e.printStackTrace();
+	        	      }
+	        	}
+	}
 	
 	public void display() {
 		
-		System.out.println("Person Information");
-		for(int i=0; i<personInfo.size(); i++) {
-			System.out.println(personInfo.get(i));
+		try {
+			List<String> lines = Files.readAllLines(Paths.get("D:\\Address.csv"));
+			for(String line : lines) {
+				line = line.replace("\"", "");
+				System.out.println(line);
 			}
+			} catch (Exception e) {
+				System.out.println("No data found");
+				e.printStackTrace();
+				}
 		}
 	
 	public void editPerson() {
@@ -158,9 +211,9 @@ public class AddressBook {
 				}
 			}
 		personInfo.stream()
-						.filter(personInfo -> personInfo.getCity().equals(City))
-						.filter(personInfo -> personInfo.getState().equals(State))
-						.forEach(personInfo1 -> System.out.println(personInfo1));
+				.filter(personInfo -> personInfo.getCity().equals(City))
+				.filter(personInfo -> personInfo.getState().equals(State))
+				.forEach(personInfo1 -> System.out.println(personInfo1));
 		}
 	
 	public void countByCity() {
@@ -224,6 +277,7 @@ public class AddressBook {
 		personInfo.sort(Comparator.comparing(Person::getZip));
 		personInfo.forEach((Person P) -> System.out.println(P.getFirstName() + " " + P.getLastName() + " " + P.getCity() + " " + P.getState() + " " + P.getPhoneNumber() + " " + P.getZip() ));
 		}
+					
 	
 	@Override
 	protected void finalize() {
