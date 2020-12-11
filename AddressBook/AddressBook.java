@@ -67,7 +67,7 @@ public class AddressBook {
 			}
 		}
 	
-	public void addPerson() {	
+	public  synchronized void addPerson() {	
 		
 		System.out.println("Enter First Name");
 		String firstName = sc.next();
@@ -96,7 +96,7 @@ public class AddressBook {
 		Person person = new Person(firstName, lastName, city, state, phoneNumber, zip );
 		personInfo.add(person);
 		
-		fileWriter = new FileWriter("D:\\AddressBook.csv");
+		fileWriter = new FileWriter("D:\\AddressBook.csv", true);
 		fileWriter.append(FILE_HEADER);
 		for(Person p : personInfo) {
 			fileWriter.append(NEW_LINE_SEPARATOR);
